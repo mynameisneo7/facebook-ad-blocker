@@ -6,6 +6,7 @@
 // @author       Gea-Suan Lin <gslin@gslin.org>
 // @match        https://www.facebook.com/*
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (function() {
