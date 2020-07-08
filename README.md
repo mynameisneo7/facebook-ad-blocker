@@ -1,0 +1,1 @@
+# facebook-ad-blocker-userscript
