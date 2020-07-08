@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Facebook ad blocker
 // @namespace    https://wiki.gslin.org/wiki/FacebookAdBlocker
-// @version      0.20200703.1
+// @version      0.20200703.2
 // @description  Remove all ad from Facebook
 // @author       Gea-Suan Lin <gslin@gslin.org>
 // @match        https://www.facebook.com/*
