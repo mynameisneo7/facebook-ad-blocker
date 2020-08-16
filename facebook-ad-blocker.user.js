@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name         Facebook ad blocker
-// @namespace    https://wiki.gslin.org/wiki/FacebookAdBlocker
-// @version      0.20200810.1
-// @description  Remove all ad from Facebook
-// @author       Gea-Suan Lin <gslin@gslin.org>
+// @name         Facebook Ad Blocker
+// @version      0.20200810.1-fork
+// @description  Removes ads from Facebook
+// @author       Jon South <https://github.com/mynameisneo7>
+// @namespace    https://github.com/mynameisneo7/facebook-ad-blocker-userscript
+// @updateURL    https://github.com/mynameisneo7/facebook-ad-blocker-userscript/raw/master/facebook-ad-blocker.meta.js
+// @downloadURL  https://github.com/mynameisneo7/facebook-ad-blocker-userscript/raw/master/facebook-ad-blocker.user.js
 // @match        https://www.facebook.com/*
 // @grant        none
 // @license      MIT
