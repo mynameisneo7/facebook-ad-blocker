@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Facebook Ad Blocker
-// @version      0.20200816.0
+// @version      0.20201020.0
 // @description  Removes ads from Facebook
 // @author       Jon South <https://github.com/mynameisneo7>
 // @namespace    https://github.com/mynameisneo7/facebook-ad-blocker
@@ -15,10 +15,10 @@
 (function() {
   'use strict';
 
-  let observer = new MutationObserver(() => {
+  function scanPage() {
     // Check feed posts
     document.querySelectorAll('div[data-pagelet^="FeedUnit_"], div[role="article"]').forEach(div => {
-      div.querySelectorAll('div[aria-label="Sponsored"]').forEach(span => {
+      div.querySelectorAll('div[aria-label="Sponsored"], span[aria-label="Sponsored"] span[aria-label="Sponsored"]').forEach(span => {
         console.info('Remove a Facebook ad element by aria-label="Sponsored".');
         div.remove();
         return;
@@ -67,8 +67,9 @@
         }
       })
     });
-  });
+  }
 
+  let observer = new MutationObserver(scanPage);
   observer.observe(document.documentElement, {
     attributes: false,
     childList: true,
