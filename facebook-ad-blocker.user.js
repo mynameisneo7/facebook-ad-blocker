@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Facebook Ad Blocker
-// @version      0.20210116.0
+// @version      0.20210117.0
 // @description  Removes ads from Facebook
 // @author       Jon South <https://github.com/mynameisneo7>
 // @namespace    https://github.com/mynameisneo7/facebook-ad-blocker
@@ -24,6 +24,7 @@
     var conf_stories = GM_config.get('StoriesRooms');
     var conf_suggest = GM_config.get('Suggested');
     var conf_people = GM_config.get('People');
+    var conf_partner = GM_config.get('Partnerships');
     var conf_testing = GM_config.get('Experimental');
 
     // Check feed posts
@@ -58,18 +59,23 @@
             div.remove();
             return;
           }
-        } else if (conf_people == true) {
+        }
+
+        if (conf_people == true) {
           if (span.innerText.startsWith('People You May Know')) {
             console.info('Remove element: "People You May Know".');
             div.remove();
             return;
-          } else if (span.innerText.startsWith('Suggested') &&
-                    !span.innerText.startsWith('Suggested for You')) {
+          }
+
+          if (span.innerText.startsWith('Suggested') && !span.innerText.startsWith('Suggested for You')) {
             console.info('Remove ad element: "Suggested".');
             div.remove();
             return;
           }
-        } else if (conf_suggest == true) {
+        }
+
+        if (conf_suggest == true) {
           if (span.innerText.startsWith('Suggested for You')) {
             console.info('Remove ad element: "Suggested for You".');
             div.remove();
@@ -77,6 +83,17 @@
           }
         }
       });
+
+      // "Paid Partnership" posts
+      if (conf_partner == true) {
+        div.querySelectorAll('a').forEach(span => {
+          if (span.innerText.startsWith('Paid Partnership')) {
+            console.info('Remove ad element: "Paid Partnership".');
+            div.remove();
+            return;
+          }
+        });
+      }
     });
 
     // Check for Sponsored sidebar
@@ -125,7 +142,7 @@
     "z-index": 9999,
     "display": "flex",
     "max-width": "40em",
-    "max-height": "22em",
+    "max-height": "24em",
     "filter": "drop-shadow(6px 6px 8px #000)",
     "border-radius": "8px",
   };
@@ -173,7 +190,12 @@
       'Suggested':  {
         'label': 'Block "Suggested For You"',
         'type': 'checkbox',
-        'default': false
+        'default': true
+      },
+      'Partnerships':  {
+        'label': 'Block "Paid Partnership"',
+        'type': 'checkbox',
+        'default': true
       },
       'StoriesRooms':  {
         'label': 'Remove Stories/Rooms',
