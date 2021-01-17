@@ -4,6 +4,7 @@ UserScript to optionally remove the following Facebook page elements:
 - "Sponsored" posts
 - "Suggested for You" posts
 - "Sponsored" sidebar block
+- "Paid Sponsorship" posts
 - "People you may know" block
 - Stories block (above status)
 - Rooms block (below status)
