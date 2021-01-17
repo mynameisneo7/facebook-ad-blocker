@@ -21,7 +21,7 @@ in your browser and then click the script link below:
 ## Configuration
 
 Settings to choose which elements to block are available by clicking the gear
-(⚙) next to "Your Shortcuts" on the left sidebar.
+(⚙) next to **Your Shortcuts** on the left sidebar.
 
 ## Experimental Features
 
